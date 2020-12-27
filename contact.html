@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/style.css" rel="stylesheet">
+    <script src="JS/navbar.js" defer></script>
+    <title>La Cuisine de Cass</title>
+</head>
+
+<body>
+    <header id="header">
+
+        <nav id="navbar">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html"><img id="logo" src="IMG/logo.png"
+                            alt="logo representant une assiette avec une fourchette et un couteau"></a>
+                </li>
+
+                <li class="links">
+                    <a href="index.html">Acceuil</a>
+                </li>
+
+                <li class="links menu-deroulant"><a href="#">Entrées</a>
+                    <ul class="submenu">
+                        <li><a href="#">Entrée 1</a></li>
+                        <li><a href="#">Entrée 2</a></li>
+                        <li><a href="#">Entrée 3</a></li>
+                    </ul><!-- Fin sous-menu -->
+                </li>
+
+                <li class="links menu-deroulant"><a href="#">Plats</a>
+                    <ul class="submenu">
+                        <li><a href="#">Plat 1</a></li>
+                        <li><a href="#">Plat 2</a></li>
+                        <li><a href="#">Plat 3</a></li>
+                        <li><a href="#">Plat 4</a></li>
+                    </ul><!-- Fin sous-menu -->
+                </li>
+
+                <li class="links menu-deroulant"><a href="#">Desserts</a>
+                    <ul class="submenu">
+                        <li><a href="#">Dessert 1</a></li>
+                        <li><a href="#">Dessert 2</a></li>
+                        <li><a href="#">Dessert 3</a></li>
+                        <li><a href="#">Dessert 4</a></li>
+                        <li><a href="#">Dessert 5</a></li>
+                    </ul><!-- Fin sous-menu -->
+                </li>
+
+                <li>
+                    <a class="btn-contact" href="contact.html"><button>Contact</button></a>
+                </li>
+            </ul><!-- Fin menu principal -->
+        </nav>
+
+    </header>
+
+    <div class="main-content">
+        <h1 class="title">Pour me contacter</h1>
+
+        <form class="formulaire" action="#">
+
+                <div class="wrapp">
+                    <label for="name">Nom : </label>
+                    <input type="text" id="name" autofocus placeholder="Saisir votre nom">
+                </div>
+
+                <div class="wrapp">
+                    <label for="prenom">Prénom : </label>
+                    <input type="text" id="prenom" placeholder="Saisir votre prenom">
+                </div>
+
+                <div class="wrapp">
+                    <label for="email">E-mail : </label>
+                    <input type="text" id="email" placeholder="Saisir votre mail">
+                </div>
+
+                <div class="wrapp">
+                    <label for="message">Message : </label>
+                    <textarea id="subject" name="message" placeholder="Saisir votre message"></textarea>
+                </div>
+
+                <div class="wrapp">
+                    <input type="submit" value="Envoyer">
+                </div>
+             
+        </form>
+
+        
+
+
+    </div><!-- Din du div main-content -->
+
+    <footer>
+        <div class="footer-content">
+            <p>Concocté par CHAUMULON Cassandra</p>
+            <p>Copyright &copy; 2020</p>
+        </div>
+    </footer>
+
+    <script src="JS/navbar.js"></script>
+</body>
+
+</html>
