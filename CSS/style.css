@@ -1,0 +1,522 @@
+/********** GESTION DES POLICES **********/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Oswald:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+    font-size: 16px;
+}
+
+/********** GESTION DE LA BARRE DE NAV **********/
+#logo
+{
+    height: 70px;
+    /*border: 1px solid red;*/
+}
+
+#header
+{
+    /* border: 1px solid red; */
+    background-color: rgb(250, 250, 237);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100px;
+    transition: 0.6s;
+    border-bottom: 2px solid rgb(128, 32, 32);
+}
+
+nav
+{
+    /* border: 1px solid lawngreen; */
+    width: 100%;
+    height: 100%;
+}
+
+nav ul
+{
+    padding: 10px;
+    /* border: 1px solid rgb(49, 150, 209); */
+    justify-content: space-between;
+}
+
+nav > ul li:hover .submenu
+{
+    display: flex;
+    flex-flow: column wrap;
+    transition: 0.5s;
+}
+
+.menu, .submenu
+{
+    list-style: none;
+    display: flex;
+}
+
+.menu
+{
+    padding: 20px 8%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu li a 
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: brown;
+    text-decoration: none;
+    /* border: 1px solid sienna; */
+    padding: 5px 5px;
+}
+
+.menu li.links a:hover 
+{
+    background-color: rgb(216, 61, 14);
+    color: white;
+    border:none;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+.submenu
+{
+    display: none;
+    background-color: whitesmoke;
+    position: absolute;
+    /* border: 1px solid rebeccapurple; */
+    margin-top: 4px;
+    width: 200px;
+    padding: 0px;
+}
+
+.submenu li
+{
+    /* display: none; */
+    /* border: 1px solid green; */
+    padding: 10px;
+}
+
+.menu-deroulant ul li a
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: grey;
+    /* border: 1px solid red; */
+}
+
+.menu-deroulant ul li a:hover
+{
+    background-color: rgba(121, 68, 68, 0.432);
+    color: rgb(34, 32, 32);
+    border-radius: 0px;
+    transition: 0.4s;
+}
+
+button
+{
+    padding: 9px 30px;
+    background-color: orange;
+    color: white;
+    border:none;
+    border-radius: 60px;
+}
+
+button:hover
+{
+    background-color: darkorange;
+    color: brown;
+    transition: 0.5s;
+}
+
+/* Gestion de l'affichage lorsque l'écran < 800px */
+@media screen and (max-width: 800px)
+{
+    #header
+    {
+        height: 60px;
+        background: rgb(128, 32, 32);
+        border-bottom: none;
+    }
+
+    nav
+    {
+        position: relative;
+    }
+
+    /* 3 petits traits pour le menu */
+    .hamburger
+    {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        /* Permet de garder le hamburger au-dessus */
+        z-index: 2;
+    }
+
+    .line
+    {
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 5px;
+    }
+
+    .menu
+    {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center; 
+        background: rgb(240, 221, 225);
+        height: 100vh;
+        width: 100%;  
+
+        /* Masquage du menu */
+        clip-path: circle(0px at 90% -5%);
+        -webkit-clip-path: circle(0px at 90% -5%);
+        transition: 0.8s;
+        pointer-events: none;
+    }    
+
+    /* Animation */
+    .menu.open
+    {
+        clip-path: circle(1200px at 10% 10%);
+        -webkit-clip-path: circle(1200px at 10% 10%);
+        pointer-events: all;
+    }
+
+    .menu li
+    {
+        opacity: 0;
+    }
+
+    .menu li:nth-child(1)
+    {
+        transition: all 1.2s ease 0.2s;
+    }
+
+    .menu li:nth-child(2)
+    {
+        transition: all 1.2s ease 0.4s;
+    }
+
+    .menu li:nth-child(3)
+    {
+        transition: all 1.2s ease 0.6s;
+    }
+
+    .menu li:nth-child(4)
+    {
+        transition: all 1.2s ease 0.8s;
+    }
+
+    .menu li:nth-child(5)
+    {
+        transition: all 1.2s ease 1s;
+    }
+
+    .menu li:nth-child(6)
+    {
+        transition: all 1.2s ease 1.2s;
+    }
+
+    li.fade
+    {
+        opacity: 1;
+    }
+
+    .menu li a, button
+    {
+        font-size: 25px;
+    }
+
+    /* Cacher les sous-menus */
+    .menu-deroulant ul li
+    {
+        display: none;
+    }
+}
+
+/********** GESTION DU CONTENU **********/
+
+.main-content
+{
+    /* border: 1px solid red; */
+    margin: 25px 180px 0px 180px;
+    font-family: 'Lora';
+    padding: 10px 20px;
+    margin-top: 220px;
+    background-color: rgb(247, 241, 235);
+}
+
+.title
+{
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    /* border: 1px solid yellowgreen; */
+    margin-bottom: 25px;
+}
+.infos
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    /* border: 1px solid mediumvioletred; */
+    padding: 10px 10px;
+    background-color: rgb(236, 211, 181); 
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.infos-content
+{
+    display: inline-block;
+    /* border: 1px solid red; */
+    padding: 10px;
+    text-align: center;
+}
+
+.photo-principale
+{
+    /* border: 1px solid green; */
+    display: flex;
+    align-content: center;
+    padding: 0% 25%;
+}
+
+.photo-principale img
+{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+.subtitle
+{
+    /* border: 1px solid teal; */ 
+    color: rgb(209, 79, 4);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.content
+{
+    /* border: 1px solid darkorchid; */
+    margin: 18px 8px;
+}
+
+.ingredients
+{
+    /* border: 1px solid red; */
+    margin-bottom: 60px;
+    margin-top: 100px;
+    padding: 0px 50px;
+}
+
+.ingredients-list ul
+{
+    /* border: 1px solid royalblue; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ingredients-list ul li
+{
+    /* border: 1px solid rgb(128, 0, 70); */
+    margin: 10px 0px;
+    display: inline-block;
+    color: rgb(66, 61, 61);
+    padding: 0px 10px;
+}
+
+.preparation
+{
+    /* border: 1px solid darkgoldenrod; */
+    margin-bottom: 60px;
+    padding: 0px 50px;
+}
+
+.preparation-content ol
+{
+    list-style: none; 
+    counter-reset: li;
+    /* border: 1px solid rgb(107, 16, 100); */
+}
+
+.preparation-content ol li 
+{
+    counter-increment: li;
+    margin: 20px 0px;
+    color: rgb(66, 61, 61);
+    /* border: 1px solid orange; */
+    display: flex;
+    flex-direction: row;    
+}
+
+.preparation-content ol li::before
+{
+    content: counter(li); 
+    color: rgb(46, 44, 44);
+    display: inline-block;
+    width: 30px; 
+    text-align: center; 
+    /* border: 1px solid blue; */
+    margin-left: 10px;
+    padding: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+}
+
+.preparation-content ol li p
+{
+    /* border: 1px solid rgb(186, 218, 9); */
+    display: inline-block;
+    width: 80%;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+/********** GESTION DU FROMULAIRE DE CONTACT **********/
+.formulaire 
+{
+  border-radius: 5px;
+  background-color: red;
+  padding: 20px;
+  width: 70%;
+}
+
+
+
+form .wrapp 
+{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    height: 120px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form .wrapp label
+{
+    /* border: 1px solid brown; */
+    width: 100px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    text-align:center;
+}
+
+form .wrapp input[type="text"], form .wrapp input[type="email"], form .wrapp textarea
+{
+    flex: 1 1 auto;
+    /* border: 1px solid fuchsia; */
+    display: inline-block;
+    height: 60px;
+}
+
+form .wrapp input[type="submit"]
+{
+    text-align: center;
+}
+
+
+/* Gestion de l'affichage lorsque l'écran < 1000px */
+@media screen and (max-width: 1000px)
+{
+    .main-content
+    {
+        margin: 100px 40px 0px 40px;
+        font-family: 'Lora';
+        padding: 2px 5px;
+    } 
+}
+
+/* Gestion de l'affichage lorsque l'écran < 800px */
+@media screen and (max-width: 800px)
+{
+    .ingredients-list ul
+    {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .photo-principale
+    {
+        padding: 0% 15%;
+    }
+
+    footer
+    {
+        height: 90px;
+    }
+}
+
+/* Gestion de l'affichage lorsque l'écran < 650px */
+@media screen and (max-width: 650px)
+{
+    .main-content
+    {
+        margin: 80px 15px 0px 15px;
+        font-family: 'Lora';
+        padding: 2px 5px;
+    } 
+
+    .preparation-content ol li::before
+    {
+        margin-left: 0px;
+        padding: 2px;
+        font-size: 18px;
+    }
+
+    .preparation-content ol li p
+    {
+        width: 90%;
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+
+    .title
+    {
+        font-size: 40px;
+    }
+}
+
+
+/********** GESTION DU FOOTER **********/
+
+footer
+{
+    height: 150px;
+    /* border: 1px solid red; */
+    background-color: rgb(128, 32, 32);
+}
+
+.footer-content
+{
+   /*  border: 1px solid green; */
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
